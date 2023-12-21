@@ -14,4 +14,8 @@ public class FarmService {
   public FarmService(FarmRepository farmRepository) {
     this.farmRepository = farmRepository;
   }
+
+  public Farm createFarm(Farm farm) {
+    return farmRepository.save(farm);
+  }
 }
