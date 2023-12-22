@@ -62,4 +62,20 @@ public class FarmService {
 
     return cropRepository.save(crop);
   }
+
+  /**
+   * Gets crops by farm id.
+   *
+   * @param farmId the farm id
+   * @return the crops by farm id
+   */
+  public List<Crop> getCropsByFarmId(Long farmId) {
+    Optional<Farm> farmOptional = farmRepository.findById(farmId);
+    if (farmOptional.isEmpty()) {
+      throw new FarmNotFoundException();
+    }
+
+    Farm farm = farmOptional.get();
+    return farm.getCrops();
+  }
 }

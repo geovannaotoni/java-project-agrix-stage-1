@@ -24,12 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/farms")
 public class FarmController {
   private final FarmService farmService;
-  private final CropService cropService;
 
   @Autowired
-  public FarmController(FarmService farmService, CropService cropService) {
+  public FarmController(FarmService farmService) {
     this.farmService = farmService;
-    this.cropService = cropService;
   }
 
   @PostMapping
@@ -62,5 +60,20 @@ public class FarmController {
       @RequestBody CropDto cropDto) {
     Crop newCrop = farmService.insertCrop(farmId, cropDto.toCrop());
     return ResponseEntity.status(HttpStatus.CREATED).body(CropDto.toDto(newCrop));
+  }
+
+  /**
+   * Gets crops by farm id.
+   *
+   * @param farmId the farm id
+   * @return the crops by farm id
+   */
+  @GetMapping("/{farmId}/crops")
+  public ResponseEntity<List<CropDto>> getCropsByFarmId(@PathVariable Long farmId) {
+    List<Crop> crops = farmService.getCropsByFarmId(farmId);
+    List<CropDto> cropsDto = crops.stream()
+        .map(crop -> CropDto.toDto(crop))
+        .toList();
+    return ResponseEntity.ok(cropsDto);
   }
 }
