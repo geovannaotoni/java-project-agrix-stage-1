@@ -1,4 +1,4 @@
-# AgroTech - Agrix: Sistema de Gestão de Fazendas e Plantios 🌱🏞️
+# Agrix: Sistema de Gestão de Fazendas da AgroTech 🌱🏞️
 Um grupo de empreendedores preocupados com os impactos ambientais e sociais da agricultura fundou a AgroTech. Essa empresa busca desenvolver tecnologias para aprimorar a eficiência no cultivo de plantações, visando a redução do desperdício de recursos e um uso mais responsável da terra. O primeiro produto da empresa, o Agrix, é um sistema de gestão e monitoramento das fazendas participantes. Este projeto é o início do desenvolvimento do Agrix em fases e servirá como base para próximas etapas.
 
 ## ⚙️ Funcionalidades da API
@@ -10,7 +10,7 @@ Este projeto visa o desenvolvimento de uma aplicação Spring Boot com funcional
 - Criação de um Dockerfile para configurar a aplicação para execução no Docker.
 - Estruturação do Banco de Dados.
 
-## 💾 Estrutura do Banco de Dados
+## 🏛️ Estrutura do Banco de Dados
 Este modelo inclui as seguintes tabelas:
 - **farm**: Representa uma fazenda.
 - **crop**: Representa uma plantação e está em relacionamento N:1 ("muitos para um") com a tabela farm.
